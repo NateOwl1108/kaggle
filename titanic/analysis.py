@@ -10,6 +10,8 @@ keep_cols =["Survived","Pclass","Sex","Age","SibSp","Parch","Fare","Cabin","Emba
 
 df = df[keep_cols]
 
+
+
 def convert_sex_to_int(sex):
   if sex == "male":
     return 0
