@@ -1,7 +1,7 @@
-
+print('begin')
 import pandas as pd
 import numpy as np
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LogisticRegression
 import sys
 
 
@@ -91,10 +91,14 @@ Y_test = arr_test[:,0]
 X_train = arr_train[:,1:]
 X_test = arr_test[:,1:]
 
+print("before regressor")
+regressor = LogisticRegression(max_iter=1000)
 
-regressor = LinearRegression()
-
+print('after creation')
 regressor.fit(X_train, Y_train)
+print('fit')
+print(regressor.coef_)
+
 
 coef_dict = {}
 featured_columns = df.columns[1:]
@@ -104,8 +108,12 @@ print(featured_coefficients)
 
 for i in range(len(featured_columns)):
   column = featured_columns[i]
-  coefficient = featured_coefficients[i]
+
+  coefficient = featured_coefficients[0][i]
   coef_dict[column] = coefficient
+
+print('coef_dict')
+print(coef_dict)
 
 Y_test_predictions = regressor.predict(X_test)
 
@@ -119,6 +127,8 @@ def conver_regressor_output_to_survival_value(output):
 
 y_test_predictions = [conver_regressor_output_to_survival_value(output) for output in Y_test_predictions]
 y_train_predictions = [conver_regressor_output_to_survival_value(output) for output in Y_train_predictions]
+print(y_test_predictions)
+print(y_train_predictions)
 
 def get_accuracy(predictions, actual):
   num_correct = 0 
