@@ -75,6 +75,7 @@ del df['Embarked']
 features_to_use = ['Sex',"Pclass","Fare","Age","SibSp","SibSp>0","Parch>0","Embarked=C","Embarked=None","Embarked=Q","Embarked=S", "CabinType=A","CabinType=B","CabinType=C","CabinType=D","CabinType=E","CabinType=F","CabinType=G","CabinType=None","CabinType=T"]
 columns_needed = ['Survived'] + features_to_use
 
+
 df = df[columns_needed]
 
 

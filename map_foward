@@ -1,0 +1,21 @@
+FORWARD SELECTION
+get df of processed data
+
+loop until either: {
+    1. there are no more features to add as a permanent feature
+    2. None of the remaining features increase the accuracy
+}
+
+
+    for every feature in the dataset
+        df 0 features  
+        add feature
+        split df in 2 parts
+    feature acurracy add acurracy
+  if acurracies -
+  break
+  else
+  only add the best feature to be permanent
+
+
+ 

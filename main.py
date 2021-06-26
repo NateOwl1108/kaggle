@@ -1,1 +1,1 @@
-python parse_line.py
+python titanic/backward_selection.py
