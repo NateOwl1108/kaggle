@@ -7,8 +7,6 @@ import numpy as np
 import matplotlib.pyplot as plt 
 from matplotlib.ticker import MaxNLocator
 
-import time
-start_time = time.time()
 
 import pandas as pd 
 
@@ -16,8 +14,8 @@ def all_ks_accuracies(df):
   accuracies = []
   matrix = np.array(df)
 
-  independent_mat = matrix[:, 1:]
-  dependent_mat = matrix[:,0]
+  independent_mat = matrix[:, :4]
+  dependent_mat = matrix[:,4]
 
   #looping through all values of k
   for k_value in k_values:
@@ -50,9 +48,9 @@ def all_ks_accuracies(df):
 
 k_values = [k*2 + 1 for k in range(50)]
 #set up df 
-original_df = pd.read_csv('processed_titanic_data.csv')
+original_df = pd.read_csv('book.csv')
 
-original_df = original_df[["Survived","Sex","Pclass","Fare","Age","SibSp"]][:100]
+original_df = original_df[['num pages','num unique words','avg sentence length','avg word size','book type']][:100]
 
 accuracies=all_ks_accuracies(df)
 
@@ -100,10 +98,9 @@ for column in df:
 accuracies= all_ks_accuracies(df)
 
 plt.plot(k_values,accuracies)
-
 plt.legend(['normal', 'simple scale', 'min-max', 'z-scoring'])
-plt.savefig('Titanic K normalize values accuracies.png')
+
+plt.savefig('Book K normalize values accuracies.png')
 
 
-end_time = time.time()
-print('time taken:', end_time - start_time)
+
