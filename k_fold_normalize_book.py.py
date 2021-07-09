@@ -98,9 +98,10 @@ for column in df:
 accuracies= all_ks_accuracies(df)
 
 plt.plot(k_values,accuracies)
-plt.legend(['normal', 'simple scale', 'min-max', 'z-scoring'])
+plt.legend(['unnormalized', 'simple scale', 'min-max', 'z-scoring'])
 
 plt.savefig('Book K normalize values accuracies.png')
+# When the data is normalized all the values are in terms of the max value making it easier to compare to eachother
 
 
 

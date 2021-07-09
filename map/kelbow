@@ -1,0 +1,11 @@
+
+we need accuracy for each k
+
+1. select a k value
+2. get accuracy
+3. plot
+
+How to get accuracy:
+1. get initial clusters
+2. make and run kmeans model
+3. get sse

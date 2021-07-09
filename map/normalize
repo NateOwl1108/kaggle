@@ -1,0 +1,13 @@
+Initialize the clusters
+
+Randomly divide the data into k parts. Each part represents an initial "cluster".
+
+Compute the mean of each part. Each mean represents an initial cluster center.
+
+Update the clusters
+
+Re-assign each record to the cluster with the nearest center (using Euclidean distance).
+
+Compute the new cluster centers by taking the mean of the records in each cluster.
+
+Keep repeating step 2 until the clusters don't change after the update.

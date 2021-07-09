@@ -1,1 +1,1 @@
-python titanic/backward_selection.py
+python k_clusters.py
